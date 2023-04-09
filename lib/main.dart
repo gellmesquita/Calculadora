@@ -33,7 +33,8 @@ class _CalculadoraState extends State<Calculadora> {
       numero=numero.replaceAll(",", ".");
       double result = calculateExpression(numero);
       setState(() {
-        numero = result.toString();
+     
+        numero=result.truncate() == result ? result.toInt().toString() : result.toString();
         numero=numero.replaceAll(".", ",");
       });
     } catch (e) {
