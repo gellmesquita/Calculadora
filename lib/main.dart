@@ -86,16 +86,21 @@ class _CalculadoraState extends State<Calculadora> {
                   style: TextStyle(fontSize: 30),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  numero= numero.substring(0, numero.length - 1);
-                  setState(() {});
-                },
-                child: const Text(
-                  '<X',
-                  style: TextStyle(fontSize: 30),
-                ),
+              const Divider(
+                indent: 30,
               ),
+              IconButton(
+                icon: const Icon(
+                  Icons.delete,
+                  size: 30,
+                ),
+                onPressed: () {
+                  if(numero.isNotEmpty){
+                    numero= numero.substring(0, numero.length - 1);
+                    setState(() {});
+                  }
+                },
+              )       
             ],
           ),
           Row(
